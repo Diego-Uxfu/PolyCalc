@@ -1,8 +1,5 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
 import javax.swing.*;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
