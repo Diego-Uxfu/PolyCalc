@@ -17,7 +17,7 @@ public class ButtonListener implements ActionListener {
     }
 
     /*
-    @method actionPerformed will handle recieivng the input from button presses
+    @method actionPerformed will handle receiving the input from button presses
     using switch cases, this method will focus on simple arithmetic ops
     more advanced ops, i.e. derivative, integration, will be handled else where
      */

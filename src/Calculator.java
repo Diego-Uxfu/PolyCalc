@@ -8,7 +8,28 @@ public class Calculator{
     
     public Calculator(){
         // creates frame, visibility, size, title, and exitonclose
-        JFrame frame = new JFrame();
+        JFrame frame = new JFrame(); // creates the frame
+        JMenuBar menuBar = new JMenuBar(); // creates a menu bar
+
+        JMenu calculatorMenu = new JMenu("Calculators"); // creating obj
+        menuBar.add(calculatorMenu); // adding ^ into the menu bar
+
+        JMenuItem fourFunctionCalculator = new JMenuItem("Four Function"); // allows options dropdown
+        JMenuItem scientificCalculator = new JMenuItem("Scientific");
+        JMenuItem Calculus = new JMenuItem("Calculus");
+        JMenuItem LinearAlgebraCalculator = new JMenuItem("Linear Algebra");
+
+        calculatorMenu.add(fourFunctionCalculator); // adding the option
+        calculatorMenu.add(new JSeparator());
+        calculatorMenu.add(scientificCalculator);
+        calculatorMenu.add(new JSeparator());
+        calculatorMenu.add(Calculus);
+        calculatorMenu.add(new JSeparator());
+        calculatorMenu.add(LinearAlgebraCalculator);
+        calculatorMenu.add(new JSeparator());
+
+
+        frame.setJMenuBar(menuBar); // essentially frame.visibility(true)
 
         frame.setSize(300, 500);
         frame.setTitle("Calculator");
