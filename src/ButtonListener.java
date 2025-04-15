@@ -33,6 +33,13 @@ public class ButtonListener implements ActionListener {
                 display.setText("");
                 break;
 
+            case "D": // backspace
+                if(input.length() > 0) {
+                    input.deleteCharAt(input.length() - 1);
+                    display.setText(input.toString());
+                }
+                break;
+
             case "=":
                 double result = evaluateExpression(input.toString()); // calls exp to return solution
                 display.setText(String.valueOf(result)); // sets display to result
@@ -55,6 +62,11 @@ public class ButtonListener implements ActionListener {
                 break;
 
             default: // simply adds the numbers
+                if(buttonText.equals(".")){
+                    if(!canAddDecimal(input)){
+                        return;
+                    }
+                }
                 input.append(buttonText);
                 display.setText(input.toString());
                 break;
@@ -74,5 +86,25 @@ public class ButtonListener implements ActionListener {
      */
     private boolean isOperator(char c){
         return c == '+' || c == '-' || c == '*' || c == '/';
+    }
+
+    /*
+    canAddDecimal is helper method that will determine if a decimal can be added in the specific placement
+     */
+    private boolean canAddDecimal(StringBuilder input){
+        int i = input.length() - 1; // used to traverse the input backwards
+
+        while(i >= 0 && !isOperator(input.charAt(i))){ // if not empty and is not op,
+            if(input.charAt(i) == '.'){ // checks if there is already a decimal
+                return false; // cannot add decimal
+            }
+            i--; // decrement
+        }
+        return true; // else return true
+    }
+
+    private boolean negativeSwitch(char c){
+        int i = input.length() - 1;
+        return true;
     }
 }

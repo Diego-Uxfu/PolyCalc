@@ -16,7 +16,7 @@ public class Calculator{
         /*
         fram foundation, size title, close op
          */
-        frame.setSize(300, 500);
+        frame.setSize(400, 500);
         frame.setTitle("PolyCalc");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout(5 , 5)); // creating a BL to create sections
@@ -54,9 +54,9 @@ public class Calculator{
         calculatorMenu.add(LinearAlgebraCalculator);
         calculatorMenu.add(new JSeparator());
 
-        currentUI = new FourFunctionUI();
-        buttonPanel = currentUI.getButtonPanel(input, display);
-        frame.add(buttonPanel, BorderLayout.CENTER);
+        currentUI = new FourFunctionUI(); // calling the 4func ui
+        buttonPanel = currentUI.getButtonPanel(input, display); // retrieving the button panel for 4func
+        frame.add(buttonPanel, BorderLayout.CENTER); // adding panel to the frame
 
         frame.setVisible(true);
         frame.setJMenuBar(menuBar); // essentially ^ for menu bar
