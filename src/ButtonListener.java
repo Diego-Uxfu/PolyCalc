@@ -6,14 +6,16 @@ import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class ButtonListener implements ActionListener {
     final private JTextField display;
+    private CalculatorType calculator;
     private StringBuilder input;
 
     /*
     ButtonListener constructor
      */
-    public ButtonListener(StringBuilder input, JTextField display) {
+    public ButtonListener(StringBuilder input, JTextField display, CalculatorType calculator) {
         this.display = display;
         this.input = input;
+        this.calculator = calculator;
     }
 
     /*
