@@ -32,7 +32,9 @@ public class Calculator{
         frame.add(display, BorderLayout.NORTH);
 
         JMenu calculatorMenu = new JMenu("Calculators"); // creating obj
+        JMenu historyMenu = new JMenu("History");
         menuBar.add(calculatorMenu); // adding ^ into the menu bar
+        menuBar.add(historyMenu);
 
         /*
         creating menu items to insert into drop-down menu
@@ -41,6 +43,12 @@ public class Calculator{
         JMenuItem scientificCalculator = new JMenuItem("Scientific");
         JMenuItem Calculus = new JMenuItem("Calculus");
         JMenuItem LinearAlgebraCalculator = new JMenuItem("Linear Algebra");
+
+        JMenuItem fourFunctionHistory = new JMenuItem("Four Function History");
+        JMenuItem scientificHistory = new JMenuItem("Scientific History");
+        JMenuItem calculusHistory = new JMenuItem("Calculus History");
+        JMenuItem linearAlgebraHistory = new JMenuItem("Linear Algebra History");
+
 
         /*
         adds the options into the drop-down menu of the ui
@@ -53,6 +61,14 @@ public class Calculator{
         calculatorMenu.add(new JSeparator());
         calculatorMenu.add(LinearAlgebraCalculator);
         calculatorMenu.add(new JSeparator());
+
+        historyMenu.add(fourFunctionHistory);
+        historyMenu.add(new JSeparator());
+        historyMenu.add(scientificHistory);
+        historyMenu.add(new JSeparator());
+        historyMenu.add(calculusHistory);
+        historyMenu.add(new JSeparator());
+        historyMenu.add(linearAlgebraHistory);
 
         currentUI = new FourFunctionUI(); // calling the 4func ui
         buttonPanel = currentUI.getButtonPanel(input, display); // retrieving the button panel for 4func
