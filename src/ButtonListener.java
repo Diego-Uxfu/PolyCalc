@@ -34,10 +34,25 @@ public class ButtonListener implements ActionListener {
                 break;
 
             case "D": // backspace
-                if(input.length() > 0) {
+                if(!input.isEmpty()) {
                     input.deleteCharAt(input.length() - 1);
                     display.setText(input.toString());
                 }
+                break;
+
+            case "+/-":
+                if(input.isEmpty()){
+                    break;
+                }
+
+                int start = findCurrentNumberStart();
+                if(start > 0 && input.charAt(start - 1) == '-'){
+                    input.deleteCharAt(start - 1);
+                }
+                else{
+                    input.insert(start, "-");
+                }
+                display.setText(input.toString());
                 break;
 
             case "=":
@@ -106,5 +121,18 @@ public class ButtonListener implements ActionListener {
     private boolean negativeSwitch(char c){
         int i = input.length() - 1;
         return true;
+    }
+
+    /*
+    helper method to determine where the start of a number is in order to know which number
+    to apply the (-) negative symbol
+     */
+    private int findCurrentNumberStart(){
+        int i = input.length() - 1;
+
+        while(i >= 0 && !isOperator(input.charAt(i))){ // while greater than zero and not an operator
+            i--;
+        }
+        return i + 1; // start of the number is 1 + the operator
     }
 }
