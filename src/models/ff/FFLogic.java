@@ -1,9 +1,10 @@
+package models.ff;
+
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
-public class FourFunctionCalculator implements CalculatorType{
-
-    @Override
+// logic for four function calc
+public class FFLogic {
     public double evaluate(String expression){
         expression = expression.replaceAll("\\s+", ""); // strips white space
 
@@ -13,12 +14,13 @@ public class FourFunctionCalculator implements CalculatorType{
 
             if(Double.isInfinite(result)){
                 throw new ArithmeticException("Division by zero");
-            } return result;
+            }
+            return result;
         }
-        catch (ArithmeticException e){
+        catch(ArithmeticException e){
             throw new ArithmeticException("Syntax Error" + e.getMessage());
         }
-        catch (IllegalArgumentException e){
+        catch(IllegalArgumentException e){
             throw new IllegalArgumentException("Invalid Expression");
         }
     }

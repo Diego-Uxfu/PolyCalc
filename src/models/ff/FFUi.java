@@ -1,15 +1,12 @@
+package models.ff;
+
+import controllers.ButtonListener;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class FourFunctionUI implements CalculatorUI{
-    private final CalculatorType calculatorLogic = new FourFunctionCalculator();
+public class FFUi {
 
-    @Override
-    public CalculatorType getCalculatorLogic(){
-        return calculatorLogic;
-    }
-    
-    @Override
     public JPanel getButtonPanel(StringBuilder input, JTextField display){
         JPanel buttonPanel = new JPanel(new GridLayout(5,4,10,10));
         String[] buttonLabels= {
@@ -23,7 +20,7 @@ public class FourFunctionUI implements CalculatorUI{
         for(String label: buttonLabels){ // shorthand for loop
             JButton button = new JButton(label); // create button
             button.setFont(new Font("Arial", Font.PLAIN, 12)); // making font
-            button.addActionListener(new ButtonListener(input, display, calculatorLogic)); // creating action listener per button
+            button.addActionListener(new ButtonListener(input, display)); // creating action listener per button
             buttonPanel.add(button); // adding button to panel
         }
         return buttonPanel;

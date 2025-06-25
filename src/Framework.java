@@ -1,29 +1,24 @@
+import models.ff.FFUi;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class Calculator{
+public class Framework {
     private StringBuilder input;
     private JTextField display;
-    private CalculatorUI currentUI;
     private JPanel buttonPanel;
+    private FFUi currentUI;
 
-    public Calculator(){
-        // creates frame, visibility, size, title, and exitonclose
-        JFrame frame = new JFrame(); // creates the frame
-        JMenuBar menuBar = new JMenuBar(); // creates a menu bar
-        JPanel buttonPanel = new JPanel(); // panel, lays ontop of the frame, allows for buttons
+    public Framework() {
+        JFrame frame = new JFrame();
+        JMenuBar menuBar = new JMenuBar();
+        buttonPanel = new JPanel(); // panel, exists within the frame, holds buttons
 
-        /*
-        fram foundation, size title, close op
-         */
         frame.setSize(400, 500);
-        frame.setTitle("PolyCalc");
+        frame.setTitle("Calculator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new BorderLayout(5 , 5)); // creating a BL to create sections
+        frame.setLayout(new BorderLayout(5,5)); // borderlayout creates sections
 
-        /*
-        instantiates input, display, and display details
-         */
         input = new StringBuilder();
         display = new JTextField();
         display.setFont(new Font("Serif", Font.PLAIN, 40));
@@ -36,9 +31,6 @@ public class Calculator{
         menuBar.add(calculatorMenu); // adding ^ into the menu bar
         menuBar.add(historyMenu);
 
-        /*
-        creating menu items to insert into drop-down menu
-         */
         JMenuItem fourFunctionCalculator = new JMenuItem("Four Function");
         JMenuItem scientificCalculator = new JMenuItem("Scientific");
         JMenuItem Calculus = new JMenuItem("Calculus");
@@ -49,8 +41,7 @@ public class Calculator{
         JMenuItem calculusHistory = new JMenuItem("Calculus History");
         JMenuItem linearAlgebraHistory = new JMenuItem("Linear Algebra History");
 
-
-        /*
+         /*
         adds the options into the drop-down menu of the ui
          */
         calculatorMenu.add(fourFunctionCalculator);
@@ -70,11 +61,15 @@ public class Calculator{
         historyMenu.add(new JSeparator());
         historyMenu.add(linearAlgebraHistory);
 
-        currentUI = new FourFunctionUI(); // calling the 4func ui
+        currentUI = new FFUi(); // calling the 4func ui
         buttonPanel = currentUI.getButtonPanel(input, display); // retrieving the button panel for 4func
         frame.add(buttonPanel, BorderLayout.CENTER); // adding panel to the frame
 
         frame.setVisible(true);
-        frame.setJMenuBar(menuBar); // essentially ^ for menu bar
+        frame.setJMenuBar(menuBar);
+
+
     }
+
+
 }
