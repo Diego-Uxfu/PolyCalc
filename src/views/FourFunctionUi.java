@@ -1,11 +1,10 @@
-package models.ff;
-
-import controllers.ButtonListener;
+package views;
 
 import javax.swing.*;
 import java.awt.*;
+import controllers.ButtonListener;
 
-public class FFUi {
+public class FourFunctionUi implements UserInterface{
 
     public JPanel getButtonPanel(StringBuilder input, JTextField display){
         JPanel buttonPanel = new JPanel(new GridLayout(5,4,10,10));

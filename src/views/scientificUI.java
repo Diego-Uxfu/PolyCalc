@@ -1,4 +1,4 @@
-package models.scientific;
+package views;
 
 public class scientificUI {
 }

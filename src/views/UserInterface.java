@@ -1,7 +1,6 @@
-//interface
+package views;//interface
 import javax.swing.*;
 
-interface UserInterface {
+public interface UserInterface {
     JPanel getButtonPanel(StringBuilder input, JTextField display);
-
 }

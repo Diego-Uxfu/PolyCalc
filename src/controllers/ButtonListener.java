@@ -6,6 +6,19 @@ import java.awt.event.ActionListener;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
+/*
+Next Steps:
+fix the way the algorithm interprets +/-
+    know when to make negative, and which
+    know when and what to revert to positive
+
+when a solution is given, and a digit is pressed,
+it appends to the solution, fix to where it resets the display,
+and then it appends the new digit
+    note: think of how to determine a 'solution state'
+    perhaps a true false switch?
+ */
+
 public class ButtonListener implements ActionListener {
     final private JTextField display;
     private StringBuilder input;
@@ -53,6 +66,10 @@ public class ButtonListener implements ActionListener {
                 display.setText(input.toString());
                 break;
 
+            default:
+                input.append(buttonText);
+                display.setText(input.toString());
+                break;
         }
     }
 

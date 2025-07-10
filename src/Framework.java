@@ -1,4 +1,4 @@
-import models.ff.FFUi;
+import views.FourFunctionUi;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +7,7 @@ public class Framework {
     private StringBuilder input;
     private JTextField display;
     private JPanel buttonPanel;
-    private FFUi currentUI;
+    private FourFunctionUi currentUI;
 
     public Framework() {
         JFrame frame = new JFrame();
@@ -61,15 +61,11 @@ public class Framework {
         historyMenu.add(new JSeparator());
         historyMenu.add(linearAlgebraHistory);
 
-        currentUI = new FFUi(); // calling the 4func ui
+        currentUI = new FourFunctionUi(); // calling the 4func ui
         buttonPanel = currentUI.getButtonPanel(input, display); // retrieving the button panel for 4func
         frame.add(buttonPanel, BorderLayout.CENTER); // adding panel to the frame
 
         frame.setVisible(true);
         frame.setJMenuBar(menuBar);
-
-
     }
-
-
 }
