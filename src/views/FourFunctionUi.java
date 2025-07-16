@@ -7,7 +7,7 @@ import controllers.ButtonListener;
 public class FourFunctionUi implements UserInterface{
 
     public JPanel getButtonPanel(StringBuilder input, JTextField display){
-        JPanel buttonPanel = new JPanel(new GridLayout(5,4,10,10));
+        JPanel buttonPanel = new JPanel(new GridLayout(5,4,5,5));
         String[] buttonLabels= {
                 "C", "D", "+/-", "/", // clear, delete, negative, division
                 "7", "8", "9", "*", // 7, 8, 9, multiplication
