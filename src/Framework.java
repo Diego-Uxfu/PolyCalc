@@ -1,13 +1,17 @@
 import views.FourFunctionUi;
+import views.scientificUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Framework {
     private StringBuilder input;
     private JTextField display;
     private JPanel buttonPanel;
-    private FourFunctionUi currentUI;
+    private FourFunctionUi defaultUI;
+    private scientificUI scienceUI;
 
     public Framework() {
         JFrame frame = new JFrame();
@@ -61,8 +65,8 @@ public class Framework {
         historyMenu.add(new JSeparator());
         historyMenu.add(linearAlgebraHistory);
 
-        currentUI = new FourFunctionUi(); // calling the 4func ui
-        buttonPanel = currentUI.getButtonPanel(input, display); // retrieving the button panel for 4func
+        defaultUI = new FourFunctionUi(); // calling the 4func ui
+        buttonPanel = defaultUI.getButtonPanel(input, display); // retrieving the button panel for 4func
         frame.add(buttonPanel, BorderLayout.CENTER); // adding panel to the frame
 
         frame.setVisible(true);
