@@ -52,6 +52,22 @@ public class ButtonListener implements ActionListener {
                 input.append(result); // appends the result to the input to allow for further ops on the answer
                 break;
 
+            case "+/-":
+                if (input.isEmpty()){
+                    break;
+                }
+                int startPosition = findVariableStart(input.toString());
+
+                if(startPosition > 0 && input.charAt(startPosition - 1) == '-'){ // removes negative if already in place
+                    input.deleteCharAt(startPosition - 1);
+                    display.setText(input.toString());
+                }
+                else{
+                    input.insert(startPosition, '-');
+                    display.setText(input.toString());
+                }
+                break;
+
             case "+": case "-": case "*": case "/":
                 /*
                 checks the input, and calls helper @method isOp
@@ -86,5 +102,14 @@ public class ButtonListener implements ActionListener {
      */
     private boolean isOperator(char c){
         return c == '+' || c == '-' || c == '*' || c == '/';
+    }
+
+    private int findVariableStart(String input){
+        int i = input.length() - 1; // starts tracking at the latest input
+
+        while(i >= 0 && !isOperator(input.charAt(i))){ // will continue to decrement until there's no operator
+            i--;
+        }
+        return i + 1;
     }
 }
