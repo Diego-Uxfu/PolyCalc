@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import controllers.ButtonListener;
 
-public class FourFunctionUi implements UserInterface{
+public class FourFunctionUI implements UserInterface{
 
     public JPanel getButtonPanel(StringBuilder input, JTextField display){
         JPanel buttonPanel = new JPanel(new GridLayout(5,4,5,5));

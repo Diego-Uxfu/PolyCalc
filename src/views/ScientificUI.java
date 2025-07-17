@@ -2,11 +2,10 @@ package views;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
 import controllers.ButtonListener;
 
-public class scientificUI implements UserInterface {
+public class ScientificUI implements UserInterface {
     @Override
     public JPanel getButtonPanel(StringBuilder input, JTextField display){
         JPanel buttonPanel = new JPanel(new GridLayout(5,5,5,5));
