@@ -1,20 +1,22 @@
-import views.FourFunctionUi;
-import views.scientificUI;
+import controllers.CalculatorSwitchListener;
+import views.FourFunctionUI;
+import views.UserInterface;
+import views.ScientificUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class Framework {
+    private JFrame frame;
     private StringBuilder input;
     private JTextField display;
     private JPanel buttonPanel;
-    private FourFunctionUi defaultUI;
-    private scientificUI scienceUI;
+    private FourFunctionUI defaultUI;
+    private ScientificUI scienceUI;
+    private UserInterface currentUI;
 
     public Framework() {
-        JFrame frame = new JFrame();
+        frame = new JFrame();
         JMenuBar menuBar = new JMenuBar();
         buttonPanel = new JPanel(); // panel, exists within the frame, holds buttons
 
@@ -65,11 +67,24 @@ public class Framework {
         historyMenu.add(new JSeparator());
         historyMenu.add(linearAlgebraHistory);
 
-        defaultUI = new FourFunctionUi(); // calling the 4func ui
+        defaultUI = new FourFunctionUI(); // calling the 4func ui
         buttonPanel = defaultUI.getButtonPanel(input, display); // retrieving the button panel for 4func
         frame.add(buttonPanel, BorderLayout.CENTER); // adding panel to the frame
+
+        fourFunctionCalculator.addActionListener(new CalculatorSwitchListener(new FourFunctionUI(), this::setCurrentUI));
+        scientificCalculator.addActionListener(new CalculatorSwitchListener(new ScientificUI(), this::setCurrentUI));
 
         frame.setVisible(true);
         frame.setJMenuBar(menuBar);
     }
+    private void setCurrentUI(UserInterface newUI) {
+        frame.remove(buttonPanel);
+        currentUI = newUI;
+        buttonPanel = currentUI.getButtonPanel(input, display);
+        frame.add(buttonPanel, BorderLayout.CENTER);
+        frame.revalidate();
+        frame.repaint();
+    }
+
+
 }
